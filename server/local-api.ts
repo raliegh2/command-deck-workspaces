@@ -1,0 +1,53 @@
+import {registerWorkspaceApi} from './workspace-api.js';
+import {structuredLocalPlan} from './deepseek-gateway.js';
+import type {Express} from 'express';
+import {z} from 'zod';
+import {localRuntime} from './local-runtime.js';
+import {executeLocalTool,toolSkills,isLocalTool,fixedService} from './local-tools.js';
+import {submitChat} from './local-chat.js';
+import {productionWatch,ingestTraffic} from './production-watch.js';
+import {projectById} from './projects.js';
+import {PublicError} from './errors.js';
+import {systemStatus,documentReviews,approveDocument} from './system-tools.js';
+
+export function registerLocalApi(app:Express) {
+ registerWorkspaceApi(app);
+ app.post('/api/local/plan',async(req,res)=>{const input=z.object({prompt:z.string().min(2).max(16000),system:z.string().min(2).max(4000),toolIds:z.array(z.string().max(80)).min(1).max(8)}).strict().parse(req.body);if(input.toolIds.some(id=>!isLocalTool(id)))throw new PublicError('Only registered tools may be proposed.',400);const raw=await structuredLocalPlan(input.prompt,input.system,input.toolIds);res.json({plan:JSON.parse(raw),model:'deepseek-r1:1.5b',local:true});});
+ app.get('/api/local/trading-intelligence',async(_req,res)=>res.json(await (await import('./trading-intelligence.js')).tradingIntelligenceStatus()));
+ let lastTradingRefresh=0;
+ app.post('/api/local/trading-intelligence/refresh',async(req,res)=>{if(Date.now()-lastTradingRefresh<60000)throw new PublicError('Trading sources were just requested. Wait one minute.',429);lastTradingRefresh=Date.now();res.json(await (await import('./trading-intelligence.js')).refreshTradingIntelligence(req.body));});
+ app.get('/api/local/cloud-discord',async(_req,res)=>res.json(await (await import('./cloud-discord.js')).cloudDiscordStatus()));
+ app.post('/api/local/cloud-discord',async(req,res)=>{const {enabled}=z.object({enabled:z.boolean()}).strict().parse(req.body);res.json(await (await import('./cloud-discord.js')).setCloudDiscordEnabled(enabled));});
+ app.post('/api/local/research/plan',async(req,res)=>res.json(await (await import('./research-workspace.js')).researchPlan(req.body)));
+ app.get('/api/local/research-monitors',async(_req,res)=>res.json({monitors:await (await import('./research-management.js')).researchSchedules()}));
+ app.post('/api/local/research-monitors',async(req,res)=>res.json({monitors:await (await import('./research-management.js')).saveResearchSchedule(req.body)}));
+ app.delete('/api/local/research-monitors/:id',async(req,res)=>res.json({monitors:await (await import('./research-management.js')).deleteResearchSchedule(req.params.id)}));
+ app.post('/api/local/research/:id/control',async(req,res)=>{const {action}=z.object({action:z.enum(['pause','cancel'])}).strict().parse(req.body);res.json(await (await import('./research-management.js')).researchControl(req.params.id,action));});
+ app.get('/api/local/research-context',async(_req,res)=>res.json(await (await import('./research-workspace.js')).researchContext()));
+ app.get('/api/local/research',async(_req,res)=>res.json({runs:await (await import('./research-workspace.js')).researchRuns()}));
+ app.get('/api/local/research/:id',async(req,res)=>res.json(await (await import('./research-workspace.js')).researchRun(req.params.id)));
+ app.get('/api/local/research/:id/files/:file',async(req,res)=>{const file=await (await import('./research-workspace.js')).researchFile(req.params.id,req.params.file);res.download(file,req.params.file);});
+ app.get('/api/local/system/workflows/artifacts/:runId/:file',async(req,res)=>res.json(await (await import('./website-workflows.js')).workflowScreenshot(req.params.runId,req.params.file)));
+ app.get('/api/local/system/workflows',async(_req,res)=>res.json({projects:await (await import('./website-workflows.js')).websiteWorkflows()}));
+ app.get('/api/local/system',async(_req,res)=>res.json(await systemStatus()));
+ app.get('/api/local/system/documents',async(_req,res)=>res.json({documents:await documentReviews()}));
+ app.post('/api/local/system/documents/:hash/approve',async(req,res)=>res.json(await approveDocument(req.params.hash)));
+ app.post('/api/local/system/settings',async(req,res)=>{const i=z.object({backupDestination:z.string().min(3).max(500),dailyBackup:z.boolean()}).strict().parse(req.body);const runtime=await localRuntime();if(!/^(?:[a-z]:[\\/]|\/)/i.test(i.backupDestination)||i.backupDestination.includes(','))throw new PublicError('Choose an absolute local backup folder.',400);runtime.setSetting('backupDestination',i.backupDestination);runtime.setSetting('dailyBackup',String(i.dailyBackup));res.json(await systemStatus());});
+ app.post('/api/local/northstar/studio',async(_req,res)=>res.json(await fixedService('northstar')));
+ app.get('/api/local/tools',async(_req,res)=>res.json({tools:toolSkills,model:'deepseek-r1:1.5b',harness:'DeepSeek MCP',localOnly:true}));
+ app.get('/api/local/jobs',async(_req,res)=>res.json({jobs:(await localRuntime()).jobs()}));
+ app.get('/api/local/jobs/:id',async(req,res)=>res.json((await localRuntime()).job(req.params.id)));
+ app.post('/api/local/tools/:id/run',async(req,res)=>{
+  if(!isLocalTool(req.params.id))throw new PublicError('Tool not found.',404);
+  const input=z.object({projectId:z.string().regex(/^[a-z0-9-]+$/).default('command-deck'),input:z.record(z.string(),z.unknown()).default({})}).strict().parse(req.body);
+  if(!await projectById(input.projectId))throw new PublicError('Select a registered project.',404);
+  res.status(202).json((await localRuntime()).enqueue(req.params.id,input.projectId,()=>executeLocalTool(req.params.id,input.input)));
+ });
+ app.get('/api/local/sessions',async(_req,res)=>res.json({sessions:(await localRuntime()).sessions()}));
+ app.post('/api/local/sessions',async(req,res)=>{const i=z.object({projectId:z.string().regex(/^[a-z0-9-]+$/),title:z.string().min(1).max(100).optional()}).strict().parse(req.body);if(!await projectById(i.projectId))throw new PublicError('Select a registered project.',404);res.status(201).json((await localRuntime()).createSession(i.projectId,i.title));});
+ app.get('/api/local/sessions/:id',async(req,res)=>res.json((await localRuntime()).session(req.params.id)));
+ app.post('/api/local/sessions/:id/messages',async(req,res)=>{const i=z.object({prompt:z.string().trim().min(2).max(4000)}).strict().parse(req.body);res.status(202).json(await submitChat(req.params.id,i.prompt));});
+ app.get('/api/local/watch',async(_req,res)=>res.json(await productionWatch()));
+ app.post('/api/local/watch',async(req,res)=>{const i=z.object({enabled:z.boolean()}).strict().parse(req.body);(await localRuntime()).setSetting('monitoringEnabled',String(i.enabled));const telemetry=await import('./worker-telemetry.js');if(i.enabled)await telemetry.connectWorkerTelemetry();else telemetry.stopWorkerTelemetry();res.json(await productionWatch());});
+ app.post('/api/local/traffic',async(req,res)=>res.status(201).json(await ingestTraffic(req.body)));
+}

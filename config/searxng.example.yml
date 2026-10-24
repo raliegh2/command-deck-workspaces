@@ -1,0 +1,10 @@
+use_default_settings: true
+server:
+  secret_key: "replace-with-generated-local-secret"
+  limiter: false
+  image_proxy: false
+search:
+  formats: [html, json]
+engines:
+  - name: duckduckgo
+    disabled: false

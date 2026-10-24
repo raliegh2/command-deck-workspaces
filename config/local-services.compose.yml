@@ -1,0 +1,39 @@
+name: command-deck-local
+services:
+  uptime:
+    image: louislam/uptime-kuma:2
+    environment:
+      UPTIME_KUMA_DB_TYPE: sqlite
+    ports: ["127.0.0.1:3001:3001"]
+    mem_limit: 512m
+    volumes: ["uptime:/app/data"]
+    restart: unless-stopped
+  search:
+    image: searxng/searxng:latest
+    ports: ["127.0.0.1:8082:8080"]
+    mem_limit: 512m
+    volumes: ["./searxng.yml:/etc/searxng/settings.yml:ro"]
+    restart: unless-stopped
+  documents:
+    profiles: [full-documents]
+    image: quay.io/docling-project/docling-serve@sha256:87ef99a977ca26de985c706bbd68273d8edfe2521ba5b4fc44cc1f6beb68f0b7
+    ports: ["127.0.0.1:5001:5001"]
+    mem_limit: 3g
+    cpus: 2
+    environment:
+      DOCLING_SERVE_ENABLE_UI: "false"
+      DOCLING_SERVE_LOAD_MODELS_AT_BOOT: "false"
+      DOCLING_SERVE_OPTIONS_CACHE_SIZE: "1"
+      DOCLING_SERVE_MAX_NUM_PAGES: "100"
+      DOCLING_SERVE_MAX_FILE_SIZE: "20000000"
+      DOCLING_SERVE_MAX_SYNC_WAIT: "300"
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      DOCLING_SERVE_ENABLE_REMOTE_SERVICES: "false"
+      DOCLING_DEVICE: cpu
+      DOCLING_NUM_THREADS: "2"
+      DOCLING_SERVE_ENG_LOC_NUM_WORKERS: "1"
+    volumes: ["models:/opt/app-root/src/.cache"]
+    restart: unless-stopped
+volumes:
+  uptime:
+  models:

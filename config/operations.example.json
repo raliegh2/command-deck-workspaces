@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "privacy": {
+    "mode": "metadata-only",
+    "rawLogRetentionMinutes": 0,
+    "customerDataAccess": "denied",
+    "stagingData": "synthetic-only",
+    "messageContent": "redacted-operational-summary"
+  },
+  "automation": {
+    "provider": "vercel-cron",
+    "schedule": "0 0 * * *",
+    "blueprintPath": "vercel.json",
+    "deploymentStatus": "blueprint-ready"
+  },
+  "alerting": {
+    "provider": "discord",
+    "policy": "urgent-only",
+    "severities": [
+      "outage",
+      "critical"
+    ],
+    "status": "needs-configuration"
+  },
+  "agentRoles": [
+    {
+      "id": "implementation",
+      "name": "Implementation lead",
+      "responsibility": "Coordinates scoped changes, reviews, and release evidence.",
+      "mode": "gate-only"
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend maintainer",
+      "responsibility": "Maintains UI, accessibility, browser behavior, and performance.",
+      "mode": "staging"
+    },
+    {
+      "id": "backend",
+      "name": "Backend maintainer",
+      "responsibility": "Maintains APIs, functions, integrations, and service reliability.",
+      "mode": "staging"
+    },
+    {
+      "id": "security",
+      "name": "Security engineer",
+      "responsibility": "Triages advisories, dependencies, headers, and attack surface.",
+      "mode": "observe"
+    },
+    {
+      "id": "testing",
+      "name": "Test engineer",
+      "responsibility": "Runs build, unit, integration, accessibility, and smoke gates.",
+      "mode": "automatic"
+    },
+    {
+      "id": "design",
+      "name": "Product designer",
+      "responsibility": "Reviews usability, visual consistency, and responsive behavior.",
+      "mode": "staging"
+    },
+    {
+      "id": "release",
+      "name": "Release manager",
+      "responsibility": "Owns staging validation, immutable promotion, and rollback plans.",
+      "mode": "gate-only"
+    },
+    {
+      "id": "observability",
+      "name": "Observability responder",
+      "responsibility": "Monitors uptime, deployment health, and redacted error classes.",
+      "mode": "automatic"
+    },
+    {
+      "id": "privacy",
+      "name": "Data privacy steward",
+      "responsibility": "Enforces no-customer-data access, zero raw retention, and safe alerts.",
+      "mode": "gate-only"
+    }
+  ],
+  "apps": []
+}

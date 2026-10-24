@@ -1,0 +1,48 @@
+{
+  "name": "command-deck-workspaces",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"tsx watch server/index.ts\" \"vite\"",
+    "dev:api": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "tsc -b && vite build",
+    "start": "tsx server/index.ts",
+    "monitor:once": "tsx scripts/monitor-once.ts",
+    "market:refresh": "tsx scripts/market-intelligence-once.ts",
+    "market:crawl": "tsx scripts/market-intelligence-once.ts --crawl-only",
+    "market:backtest": "tsx scripts/market-intelligence-once.ts --backtest-only",
+    "discord:register": "tsx scripts/register-discord-commands.ts",
+    "test": "vitest run --maxWorkers=1 --no-file-parallelism",
+    "check": "tsc -b",
+    "mcp": "node --import tsx mcp/index.ts",
+    "memory:index": "node --import tsx scripts/memory-index.ts",
+    "setup": "node scripts/setup.mjs",
+    "prestart": "npm run setup",
+    "predev": "npm run setup",
+    "pretest": "npm run setup"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "socket.io-client": "^4.8.4",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "playwright": "^1.64.1",
+    "tsx": "^4.19.2",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^5.0.0"
+  }
+}

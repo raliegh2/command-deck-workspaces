@@ -1,0 +1,1 @@
+These configurations describe synthetic test applications only. example.test is reserved for tests. No deployment, credentials, member records, documents or trading history is included. Runtime config is generated separately from config/*.example.json.

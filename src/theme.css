@@ -1,0 +1,50 @@
+/* Orange and white operating theme. Keep this token contract aligned across both products. */
+:root {
+  color-scheme: light;
+  --ui-canvas: #f7f7f8;
+  --ui-surface: #ffffff;
+  --ui-subtle: #faf9f8;
+  --ui-ink: #24242d;
+  --ui-muted: #646471;
+  --ui-line: #e1e1e6;
+  --ui-orange: #c74720;
+  --ui-orange-hover: #a93616;
+  --ui-orange-soft: #fff0e9;
+  --ui-success: #25734e;
+  --ui-success-soft: #edf7f0;
+  --ui-danger: #ad3027;
+  --ui-danger-soft: #fff0ee;
+  --ui-warning: #805800;
+  --ui-warning-soft: #fff7e5;
+  --ui-link: #285fc4;
+  --bg: var(--ui-canvas); --rail: var(--ui-surface); --surface: var(--ui-surface); --surface-2: var(--ui-subtle);
+  --line: var(--ui-line); --line-soft: #eeeeef; --text: var(--ui-ink); --muted: var(--ui-muted); --dim: var(--ui-muted);
+  --lime: var(--ui-orange); --blue: var(--ui-link); --amber: var(--ui-warning);
+  --ink: var(--ui-ink); --paper: var(--ui-canvas); --acid: var(--ui-orange); --teal: var(--ui-success);
+  --plot-ink: var(--ui-ink); --plot-fog: var(--ui-canvas); --plot-paper: var(--ui-surface); --plot-line: var(--ui-line);
+  --plot-teal: var(--ui-success); --plot-coral: var(--ui-orange); --plot-brass: var(--ui-warning); --plot-muted: var(--ui-muted);
+}
+body { color: var(--ui-ink); background: var(--ui-canvas); }
+::selection { color: #64220f; background: #ffdfd2; }
+* { scrollbar-color: #bcbcc4 var(--ui-canvas); }
+input, textarea, select { accent-color: var(--ui-orange); caret-color: var(--ui-orange); }
+input::placeholder, textarea::placeholder { color: var(--ui-muted); opacity: 1; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--ui-orange-hover); outline-offset: 3px;
+}
+a { text-underline-offset: 3px; }
+.modal-backdrop { background: rgba(36,36,45,.30); backdrop-filter: none; }
+.primary-button, .launch-button, .command-field button, .knowledge-search button, .memory-button, .deploy-button:not(:disabled) {
+  background: var(--ui-orange); border-color: var(--ui-orange); color: #fff;
+}
+.primary-button:hover, .launch-button:hover, .command-field button:hover, .knowledge-search button:hover, .memory-button:hover, .deploy-button:not(:disabled):hover {
+  background: var(--ui-orange-hover); color: #fff;
+}
+.primary-button:disabled, .launch-button:disabled, .command-field button:disabled, .memory-button:disabled, .deploy-button:disabled {
+  color: var(--ui-muted); background: #ededf0; border-color: var(--ui-line); opacity: 1;
+}
+.secondary-button, .subtle-button, .icon-button, .memory-button.secondary { color: var(--ui-ink); background: var(--ui-surface); border-color: var(--ui-line); }
+.secondary-button:hover, .subtle-button:hover, .icon-button:hover, .memory-button.secondary:hover { color: var(--ui-orange-hover); background: var(--ui-orange-soft); }
+.nav-item.active, .nav-item.active:hover { color: var(--ui-orange-hover); background: var(--ui-orange-soft); }
+.v14-summary article:first-child { color: #fff; background: var(--ui-orange); }
+.v14-summary article:first-child small, .v14-summary article:first-child span { color: #fff; }

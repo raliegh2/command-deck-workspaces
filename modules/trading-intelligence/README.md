@@ -1,0 +1,25 @@
+# Trading intelligence
+
+## Overview
+Reusable Trading intelligence section for the included local Command Deck host. The source and server dependencies ship in this repository; this is a host-integrated module, not a standalone npm package.
+
+## Features
+Official release collection and historical research context with execution disabled.
+
+## Requirements
+Node.js 22.13 or newer, npm, and a browser. Python 3.11+ with root `requirements.txt` supports document/research exports. Optional adapters report unavailable until their dependencies and registered folders are configured; they are never simulated as live services.
+
+## Installation
+From the repository root run `npm ci`, `npm run setup`, then `npm run build` and `npm start`. Open http://127.0.0.1:8788. Install optional browser binaries with `npx playwright install chromium`; Windows uses installed Edge.
+
+## Configuration
+Use the root `.env.example` as a variable reference; export variables in your shell. `npm run setup` creates local config from safe examples without overwriting existing files. Register your own project folders and production URLs. Do not commit generated config or runtime data. See [configuration and adapter prerequisites](../../docs/configuration.md) for service commands, ports, platform limits and optional programs. See [configuration and adapter prerequisites](../../docs/configuration.md) for service commands, ports, platform limits and optional programs.
+
+## Usage
+Refresh official sources and inspect observed timestamps and context. No broker orders are placed.
+
+## Integration
+Entry source: `src/components/TradingIntelligence.tsx`. The module entry re-exports this component where applicable. Shared authentication is handled by `src/api.ts`; backend routes are registered by `server/app.ts`, `server/local-api.ts`, `server/workspace-api.ts` and `server/engineering.ts`. Import the module into the host with the matching project/state props defined in its source, and keep the shared CSS and backend routes. Root `package.json` and lockfile contain its JavaScript dependencies. Copy the whole host or preserve these imports when extracting it.
+
+## Troubleshooting
+Use Operations to check actual service readiness. If unavailable, start the relevant installed dependency and retry. Check that project folders exist and are registered. Errors remain visible beside the initiating action. The host binds to loopback; opening a LAN/public hostname gives a read-only shell. Source changes and knowledge imports require review. Run `npm run check` and `npm test` for regression checks.

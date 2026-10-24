@@ -1,0 +1,161 @@
+[
+  {
+    "id": "ddos-detector",
+    "name": "DDoS Detector",
+    "kind": "security",
+    "root": null,
+    "knowledgePath": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "security-cell",
+    "healthUrl": null,
+    "allowedScripts": [
+      "test",
+      "check"
+    ]
+  },
+  {
+    "id": "northstar",
+    "name": "Northstar Website Studio",
+    "kind": "builder",
+    "root": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "build-studio",
+    "healthUrl": null,
+    "allowedScripts": [
+      "test",
+      "build"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "malware-lab",
+    "name": "Malware Lab",
+    "kind": "security",
+    "root": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "security-cell",
+    "healthUrl": null,
+    "allowedScripts": [
+      "test",
+      "check"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "gpt-codex-bridge",
+    "name": "GPT\u2013Codex Bridge",
+    "kind": "integration",
+    "root": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "integration-desk",
+    "healthUrl": null,
+    "allowedScripts": [
+      "check"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "example-planner",
+    "name": "Example Planner",
+    "kind": "builder",
+    "root": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "lessonplan-ops",
+    "healthUrl": null,
+    "allowedScripts": [
+      "test:cloudflare",
+      "build:cloudflare"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "example-care",
+    "name": "Example Care",
+    "kind": "builder",
+    "root": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "care-hub-ops",
+    "healthUrl": null,
+    "allowedScripts": [
+      "build",
+      "test:cloudflare",
+      "build:cloudflare"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "example-portfolio",
+    "name": "Example Portfolio",
+    "kind": "builder",
+    "root": null,
+    "remoteUrl": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "portfolio-ops",
+    "healthUrl": null,
+    "allowedScripts": [],
+    "knowledgePath": null
+  },
+  {
+    "id": "m5-v15-research",
+    "name": "Improved Trading Bot V15",
+    "kind": "other",
+    "root": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "integration-desk",
+    "allowedScripts": [],
+    "knowledgePath": null,
+    "remoteUrl": null,
+    "healthUrl": null
+  },
+  {
+    "id": "home-lab-suite",
+    "name": "Command Deck Home Lab Suite",
+    "kind": "security",
+    "root": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "integration-desk",
+    "allowedScripts": [
+      "check"
+    ],
+    "knowledgePath": null,
+    "remoteUrl": null,
+    "healthUrl": null
+  },
+  {
+    "id": "command-deck",
+    "name": "Command Deck",
+    "kind": "integration",
+    "root": ".",
+    "description": "Local Command Deck workspace.",
+    "teamId": "integration-desk",
+    "healthUrl": "http://127.0.0.1:8788/api/health",
+    "allowedScripts": [
+      "test",
+      "check",
+      "build"
+    ],
+    "knowledgePath": null,
+    "remoteUrl": null
+  },
+  {
+    "id": "portfolio-engineering-foundations",
+    "name": "Portfolio Engineering Suite",
+    "kind": "integration",
+    "root": null,
+    "description": "Optional local adapter workspace.",
+    "teamId": "integration-desk",
+    "allowedScripts": [
+      "test",
+      "check"
+    ],
+    "remoteUrl": null,
+    "knowledgePath": null,
+    "healthUrl": null
+  }
+]

@@ -1,0 +1,10 @@
+import {afterEach,describe,expect,it,vi} from 'vitest';
+import {approveDocument,requireLocalUrl,runSystemTool} from './system-tools.js';
+afterEach(()=>vi.unstubAllGlobals());
+describe('local system execution boundaries',()=>{
+ it('rejects hosted model endpoints and URL credentials',()=>{expect(()=>requireLocalUrl('https://api.example.com')).toThrow('loopback');expect(()=>requireLocalUrl('http://user:pass@localhost:11434')).toThrow('loopback');expect(requireLocalUrl('http://127.0.0.1:11434').port).toBe('11434');});
+ it('rejects document traversal before touching the filesystem',async()=>{await expect(runSystemTool('system.ingest',{filename:'../private.docx'})).rejects.toThrow();await expect(approveDocument('../private')).rejects.toThrow('Invalid document hash');});
+ it('rejects unknown project browser checks without launching a browser',async()=>{await expect(runSystemTool('system.verify',{projectId:'missing-test-project'})).rejects.toThrow('Register');});
+ it('does not send credential-like queries to public search engines',async()=>{const fetch=vi.fn();vi.stubGlobal('fetch',fetch);await expect(runSystemTool('system.search',{query:'password=very-private-value'})).rejects.toThrow('private');expect(fetch).not.toHaveBeenCalled();});
+ it('keeps public search independent and recovers after invalid requests',async()=>{let release:()=>void=()=>undefined;const first=new Promise<void>(r=>{release=r;});let active=0,max=0,calls=0;vi.stubGlobal('fetch',vi.fn(async()=>{active++;max=Math.max(active,max);if(calls++===0)await first;active--;return new Response(JSON.stringify({results:[]}));}));const a=runSystemTool('system.search',{query:'public documentation'});const b=runSystemTool('system.search',{query:'public tools'});await vi.waitFor(()=>expect(calls).toBe(2));release();await Promise.all([a,b]);expect(max).toBe(2);await expect(runSystemTool('unknown',{})).rejects.toThrow('Unknown');await expect(runSystemTool('system.search',{query:'another public topic'})).resolves.toMatchObject({results:[]});});
+});

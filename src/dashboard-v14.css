@@ -1,0 +1,80 @@
+/* Adapted from code.xr Dashboard V14: shared light operating surface. */
+:root {
+  color-scheme: light;
+  --bg: #f5f5f8; --rail: #fff; --surface: #fff; --surface-2: #f7f7fa;
+  --line: #e5e5ec; --line-soft: #eeeef3; --text: #24242d;
+  --muted: #646471; --dim: #71717e; --lime: #b8401b; --blue: #285fc4;
+  --amber: #896000; --radius: 14px;
+  color: var(--text); background: var(--bg);
+}
+body { background: var(--bg); }
+* { scrollbar-color: #bcbcc8 #f5f5f8; }
+::selection { background: #ffdfd2; color: #64220f; }
+input, textarea { caret-color: #c74620; }
+a { text-underline-offset: 3px; }
+.topbar, .sidebar, .panel, .agent-rail, .activity-panel, .modal, .drawer, .loading-screen { background: #fff; color: var(--text); }
+.topbar { height: 68px; border-color: var(--line); }
+.app-shell { grid-template-rows: 68px 1fr; }
+.sidebar { border-color: var(--line); padding-top: 24px; }
+.nav-item { border-radius: 10px; color: var(--muted); margin: 2px 10px; }
+.nav-item.active { color: #9f3517; background: #fff0e9; }
+.nav-item:hover { background: #f5f5f8; color: var(--text); }
+.nav-item::before { display: none; }
+.brand-mark i { border-color: #db542c !important; }
+.global-state, .local-note, .routing-caption, .team-copy small, .team-capacity small { color: var(--muted); }
+.global-state i, .system-state i, .connection-large i { box-shadow: none; background: #25734e; }
+.profile b { background: #fff0e9; color: #9f3517; }
+.divider { background: var(--line); }
+.overview-main { padding: 30px 24px 24px; }
+.command-zone { padding: 24px; border-radius: 16px; background: #fff; margin-bottom: 24px; }
+.command-zone h1 { font-size: clamp(25px, 2.4vw, 34px); }
+.command-field { background: #f7f7fa; border-color: #d5d5df; border-radius: 10px; }
+.command-field input { font-family: inherit; }
+.command-field button, .primary-button { background: #c74720; color: #fff; border-color: #c74720; }
+.command-field button:hover, .primary-button:hover { background: #a93616; }
+.command-field button:disabled, .primary-button:disabled { background: #e9e9ef; color: #666674; border-color: #dddde5; }
+.routing-caption { height: 56px; }
+.routing-caption::after { display: none; }
+.panel { border: 0; }
+.panel-heading { min-height: 60px; }
+.panel + .panel { margin-top: 24px; }
+.project-table-head, .work-table-head { background: #fafafd; color: var(--muted); }
+.project-row:hover, .team-row:hover, .work-row:hover, .system-row:hover { background: #fafafd; }
+.subtle-button, .secondary-button { background: #fff; color: var(--text); border-color: #dcdce5; border-radius: 8px; }
+.team-icon, .team-icon.neutral { background: #fff0e9; border-color: #f1d6c9; color: #a63b1b; }
+.team-icon.blue { background: #eef3ff; border-color: #d8e2fa; color: #285fc4; }
+.team-capacity i { background: #eeeef3; }
+.agent-rail { border: 0; margin: 30px 24px 24px 0; border-radius: 16px; align-self: start; }
+.dispatch-result { background: #edf7f0; border: 1px solid #b7d8c3; border-radius: 10px; }
+.dispatch-result.blocked { background: #fff7e5; border-color: #e2cf9b; }
+.activity-panel { margin: 0 24px 24px; }
+.activity-grid article { border-color: var(--line); }
+.muted, .status-paused, .work-row time, .work-row small, .activity-grid time, .activity-grid small, .empty-line { color: var(--muted); }
+.project-row > svg { color: var(--muted); }
+.status-connected, .system-state.connected, .connection-large.connected, .work-status.complete { color: #25734e; }
+.status-connected i, .work-dot.complete, .activity-grid article > span.green, .system-state.connected i { background: #25734e; }
+.market-hero, .market-card, .production-block, .live-preview, .review-signals-panel { background: #fff; border-color: var(--line); }
+.market-summary-rail, .browser-bar, .browser-address, .knowledge-search, .change-request textarea, .team-detail li, .management-ownership li { background: #f7f7fa; border-color: var(--line); color: var(--text); }
+.market-conclusion, .market-error, .production-error, .dependency-findings { background: #fff7e5; border-color: #e2cf9b; color: #785400; }
+.market-heading p, .market-policy dt, .market-source-row p, .market-source-row > div:last-child span, .market-summary-rail span, .market-summary-rail small, .market-boundary > div span, .market-state, .market-empty p, .market-conclusion p, .comparison-head, .market-events-head, .page-view p, .page-view small { color: var(--muted); }
+.market-summary-rail strong, .market-policy dd, .market-boundary strong, .market-empty strong, .market-conclusion strong, .comparison-row span, .market-event-row, .empty-work strong, .production-alert-state, .team-number { color: var(--text); }
+.market-event-row:hover, .changeset-row:hover, .cyber-filters button:hover, .cyber-row-actions button:hover { background: #f5f5f8; }
+.production-alert-feed p, .production-alert-feed footer { color: var(--muted); }
+.production-alert-links a, .production-incident-list a { color: var(--blue); }
+.production-alert-state.incident, .production-alert-state.check-failed, .production-alert-warning, .market-state.error, .comparison-row .negative { color: #ac3027; }
+.knowledge-search button { color: #fff; }
+.drawer, .modal { border-color: var(--line); }
+.modal > header { background:#fff; }
+.drawer input, .modal input, .modal textarea, .modal select { color: var(--text); background: #fafafd; border-color: #c8c8d5; }
+.v14-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-bottom: 24px; }
+.v14-summary article { background: #fff; border-radius: 14px; padding: 22px; display: grid; gap: 10px; }
+.v14-summary article:first-child { background: #c74720; color: #fff; }
+.v14-summary span { font-size: 13px; }
+.v14-summary strong { font-size: 32px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.v14-summary small { font-size: 12px; color: var(--muted); }
+.v14-summary article:first-child small { color: #fff0e9; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #a33c1e; outline-offset: 3px; }
+@media(max-width: 800px) { .overview-main { padding: 20px 14px; } .command-zone { padding: 18px; } .v14-summary { gap: 10px; } .v14-summary article { padding: 16px; } }
+@media(max-width: 520px) { .v14-summary { grid-template-columns: 1fr; } .v14-summary article { grid-template-columns: 1fr auto; gap: 5px; } .v14-summary strong { grid-column: 2; grid-row: 1 / 3; align-self: center; } .command-field button { min-width: 90px; padding: 0 10px; font-size: 13px; } }
+@media(max-width: 800px) { .sidebar-wrap { top:68px; box-shadow:none; visibility:hidden; } .sidebar-wrap.open { visibility:visible; box-shadow:12px 0 30px rgba(36,36,45,.12); } }
+@media(prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

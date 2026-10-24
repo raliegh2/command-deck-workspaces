@@ -1,0 +1,38 @@
+[
+  {
+    "id": "example-planner",
+    "projectId": "example-planner",
+    "name": "Example Planner",
+    "description": "Synthetic integration-test application.",
+    "root": "./example-app",
+    "repositoryUrl": "https://github.com/example/example-planner",
+    "repositoryConnection": "private-unverified",
+    "liveUrl": "https://example.test/example-planner",
+    "previewMode": "external-only",
+    "teamId": "lessonplan-ops"
+  },
+  {
+    "id": "example-care",
+    "projectId": "example-care",
+    "name": "Example Care",
+    "description": "Synthetic integration-test application.",
+    "root": "./example-app",
+    "repositoryUrl": "https://github.com/example/example-care",
+    "repositoryConnection": "github-connected",
+    "liveUrl": "https://example.test/example-care",
+    "previewMode": "iframe",
+    "teamId": "care-hub-ops"
+  },
+  {
+    "id": "example-portfolio",
+    "projectId": "example-portfolio",
+    "name": "Example Portfolio",
+    "description": "Synthetic integration-test application.",
+    "root": "./example-app",
+    "repositoryUrl": "https://github.com/example/example-portfolio",
+    "repositoryConnection": "github-connected",
+    "liveUrl": "https://example.test/example-portfolio",
+    "previewMode": "iframe",
+    "teamId": "portfolio-ops"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "security-cell",
+    "name": "Security Cell",
+    "description": "Detects, analyzes and responds to threats",
+    "color": "green",
+    "roles": ["Network Analyst", "Detection Engineer", "Safety Reviewer"]
+  },
+  {
+    "id": "build-studio",
+    "name": "Build Studio",
+    "description": "Creates and ships web experiences",
+    "color": "blue",
+    "roles": ["Scout", "Canvas", "Forge", "Sentinel", "Shield"]
+  },
+  {
+    "id": "integration-desk",
+    "name": "Integration Desk",
+    "description": "Connects systems and automates workflows",
+    "color": "neutral",
+    "roles": ["Hub Manager", "Contract Engineer", "Release Integrator"]
+  },
+  {
+    "id": "knowledge-crew",
+    "name": "Knowledge Crew",
+    "description": "Manages context with Second Brain",
+    "color": "blue",
+    "roles": ["Researcher", "Decision Scribe", "Context Curator"]
+  },
+  {
+    "id": "lessonplan-ops",
+    "name": "LessonPlan Ops",
+    "description": "Nine-role production team for Example Planner delivery, privacy, staging, reliability, and response",
+    "color": "green",
+    "roles": ["Implementation lead", "Frontend maintainer", "Backend maintainer", "Security engineer", "Test engineer", "Product designer", "Release manager", "Observability responder", "Data privacy steward"]
+  },
+  {
+    "id": "care-hub-ops",
+    "name": "Care Hub Ops",
+    "description": "Nine-role production team for Example Care delivery, privacy, staging, reliability, and response",
+    "color": "blue",
+    "roles": ["Implementation lead", "Frontend maintainer", "Backend maintainer", "Security engineer", "Test engineer", "Product designer", "Release manager", "Observability responder", "Data privacy steward"]
+  },
+  {
+    "id": "portfolio-ops",
+    "name": "Portfolio Ops",
+    "description": "Nine-role production team for portfolio delivery, privacy, staging, reliability, and response",
+    "color": "neutral",
+    "roles": ["Implementation lead", "Frontend maintainer", "Backend maintainer", "Security engineer", "Test engineer", "Product designer", "Release manager", "Observability responder", "Data privacy steward"]
+  }
+]

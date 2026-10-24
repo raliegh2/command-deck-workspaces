@@ -1,0 +1,161 @@
+[
+  {
+    "id": "ddos-detector",
+    "name": "DDoS Detector",
+    "kind": "security",
+    "root": ".",
+    "knowledgePath": null,
+    "remoteUrl": null,
+    "description": "Python and Scapy traffic monitor with adaptive baselines and alerting.",
+    "teamId": "security-cell",
+    "healthUrl": "https://example.test/ddos-detector",
+    "allowedScripts": [
+      "test",
+      "check"
+    ]
+  },
+  {
+    "id": "northstar",
+    "name": "Northstar Website Studio",
+    "kind": "builder",
+    "root": ".",
+    "remoteUrl": null,
+    "description": "Five-agent React website delivery studio with local generation and review gates.",
+    "teamId": "build-studio",
+    "healthUrl": "https://example.test/northstar",
+    "allowedScripts": [
+      "test",
+      "build"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "malware-lab",
+    "name": "Malware Lab",
+    "kind": "security",
+    "root": ".",
+    "remoteUrl": null,
+    "description": "Web auditing and local malware/anomaly hunting toolkit, managed as a reviewed security workspace.",
+    "teamId": "security-cell",
+    "healthUrl": null,
+    "allowedScripts": [
+      "test",
+      "check"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "gpt-codex-bridge",
+    "name": "GPT\u2013Codex Bridge",
+    "kind": "integration",
+    "root": ".",
+    "remoteUrl": null,
+    "description": "Controlled bridge for GPT-created briefs, approved workspaces, patches, checks, and previews.",
+    "teamId": "integration-desk",
+    "healthUrl": "https://example.test/gpt-codex-bridge",
+    "allowedScripts": [
+      "check"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "example-planner",
+    "name": "Example Planner",
+    "kind": "builder",
+    "root": ".",
+    "remoteUrl": null,
+    "description": "Production lesson-plan application with Clerk authentication and Cloudflare Workers/D1.",
+    "teamId": "lessonplan-ops",
+    "healthUrl": "https://example.test/example-planner",
+    "allowedScripts": [
+      "test:cloudflare",
+      "build:cloudflare"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "example-care",
+    "name": "Example Care",
+    "kind": "builder",
+    "root": ".",
+    "remoteUrl": null,
+    "description": "Production church care workspace with scoped account roles and Cloudflare Workers/D1.",
+    "teamId": "care-hub-ops",
+    "healthUrl": "https://example.test/example-care",
+    "allowedScripts": [
+      "build",
+      "test:cloudflare",
+      "build:cloudflare"
+    ],
+    "knowledgePath": null
+  },
+  {
+    "id": "example-portfolio",
+    "name": "Example Portfolio",
+    "kind": "builder",
+    "root": ".",
+    "remoteUrl": null,
+    "description": "Production cybersecurity portfolio published through GitHub Pages.",
+    "teamId": "portfolio-ops",
+    "healthUrl": "https://example.test/example-portfolio",
+    "allowedScripts": [],
+    "knowledgePath": null
+  },
+  {
+    "id": "m5-v15-research",
+    "name": "Improved Trading Bot V15",
+    "kind": "other",
+    "root": ".",
+    "description": "V15.2 ICT and swing research candidate with protected exits. Offline research only; no broker execution or automatic promotion.",
+    "teamId": "integration-desk",
+    "allowedScripts": [],
+    "knowledgePath": null,
+    "remoteUrl": null,
+    "healthUrl": null
+  },
+  {
+    "id": "home-lab-suite",
+    "name": "Command Deck Home Lab Suite",
+    "kind": "security",
+    "root": ".",
+    "description": "Seven safety-bounded home-lab experiments for recovery, web security, network detection, harness coordination, supply-chain gates, incident response, and static malware triage.",
+    "teamId": "integration-desk",
+    "allowedScripts": [
+      "check"
+    ],
+    "knowledgePath": null,
+    "remoteUrl": null,
+    "healthUrl": null
+  },
+  {
+    "id": "command-deck",
+    "name": "Command Deck",
+    "kind": "integration",
+    "root": ".",
+    "description": "Local portfolio control plane, guarded MCP access, neural memory and reviewed agent coordination.",
+    "teamId": "integration-desk",
+    "healthUrl": "https://example.test/command-deck",
+    "allowedScripts": [
+      "test",
+      "check",
+      "build"
+    ],
+    "knowledgePath": null,
+    "remoteUrl": null
+  },
+  {
+    "id": "portfolio-engineering-foundations",
+    "name": "Portfolio Engineering Suite",
+    "kind": "integration",
+    "root": ".",
+    "description": "Published five-project engineering suite with actual Windows collection, Trivy/SARIF remediation, deployed Workers/D1 and recovery, local-model evaluations, and read-only MT5 history/paper execution. 71 regression tests.",
+    "teamId": "integration-desk",
+    "allowedScripts": [
+      "test",
+      "check"
+    ],
+    "remoteUrl": null,
+    "knowledgePath": null,
+    "healthUrl": null
+  }
+]
