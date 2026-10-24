@@ -155,7 +155,8 @@ export async function addProject(project: ProjectConfig): Promise<ProjectConfig>
   if (!stat?.isDirectory()) throw new PublicError('The project path does not exist or is not a directory.');
   // Resolve junctions, symlinks and 8.3 short names before deciding whether the folder is allowed.
   const canonicalRoot = await fs.realpath(parsed.root);
-  if (!workspaceRoots().some((root) => isInside(root, canonicalRoot))) {
+  const approvedRoots=await Promise.all(workspaceRoots().map(root=>fs.realpath(root).catch(()=>null)));
+  if (!approvedRoots.some((root) => root!==null&&isInside(root, canonicalRoot))) {
     throw new PublicError('Projects must live inside an approved workspace folder (set COMMAND_DECK_WORKSPACE_ROOTS to change this).');
   }
   if (canonicalRoot.split(/[\\/]/).some((segment) => deniedSegments.has(segment.toLowerCase()))) {
