@@ -2,4 +2,7 @@
 @media(max-width:520px){.home-command .command-field input{font-size:11px}.home-command .command-field button{min-width:82px;font-size:10px}.home-launches strong{font-size:10px}.home-launches small{font-size:9px}.service-entry strong{font-size:12px}.service-entry small{font-size:10px}}
 
 .research-chat{max-height:none;overflow:visible;margin-bottom:22px}.research-paper>header>span{display:block;text-transform:none;letter-spacing:0;font-size:11px;margin-top:16px}.research-paper>header h2{margin-top:0}
-@media(min-width:851px){.sidebar-wrap{align-self:stretch;background:#fff;border-right:1px solid var(--ui-line)}.sidebar{position:static;height:100%;border-right:0;display:grid;grid-template-rows:1fr auto;gap:24px}.sidebar nav{position:sticky;top:104px;align-self:start}.sidebar .local-note{margin-top:0}}
+@media(min-width:851px){.sidebar-wrap{align-self:stretch;background:#fff;border-right:1px solid var(--ui-line)}.sidebar{position:static;height:100%;min-height:min-content;border-right:0;display:flex;flex-direction:column;justify-content:flex-start;gap:32px}.sidebar nav{position:static;flex-shrink:0}.sidebar .local-note{margin-top:auto;flex-shrink:0}}
+.workspace:has(>.home-workspace),.workspace:has(>.research-page){grid-template-columns:minmax(0,1fr)}
+.sidebar .nav-item{justify-content:flex-start}.sidebar .nav-item span{display:inline}.sidebar .local-note{display:block}
+@media(max-width:850px){.sidebar{overflow-y:auto;gap:32px}.sidebar nav,.sidebar .local-note{flex-shrink:0}.sidebar .local-note{margin-top:auto}}
