@@ -2,3 +2,4 @@
 @media(max-width:520px){.home-command .command-field input{font-size:11px}.home-command .command-field button{min-width:82px;font-size:10px}.home-launches strong{font-size:10px}.home-launches small{font-size:9px}.service-entry strong{font-size:12px}.service-entry small{font-size:10px}}
 
 .research-chat{max-height:none;overflow:visible;margin-bottom:22px}.research-paper>header>span{display:block;text-transform:none;letter-spacing:0;font-size:11px;margin-top:16px}.research-paper>header h2{margin-top:0}
+@media(min-width:851px){.sidebar-wrap{align-self:stretch;background:#fff;border-right:1px solid var(--ui-line)}.sidebar{border-right:0}}
