@@ -1,3 +1,4 @@
+import {brandFont} from './brand-font.js';
 import express, {type Express} from 'express';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -32,6 +33,7 @@ async function view(item:Upload){
  return {id:item.id,name:item.name,size:item.size,createdAt:item.createdAt,job,status:job?.status??'uploaded',content,hash,approved};
 }
 export function registerWorkspaceApi(app:Express){
+ app.get('/brand-font.ttf',(_req,res)=>{res.setHeader('Cache-Control','public, max-age=31536000, immutable');res.type('font/ttf').send(Buffer.from(brandFont,'base64'));});
  app.post('/api/workspace/search',async(req,res)=>{
   const {query}=z.object({query:z.string().trim().min(2).max(300)}).strict().parse(req.body);
   const result=await runSystemTool('system.search',{query}) as {results:{url:string;title:string;excerpt:string}[]};

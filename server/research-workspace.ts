@@ -10,7 +10,7 @@ import {PublicError} from './errors.js';
 import {runProcess,sanitizedEnv} from './processes.js';
 
 const root=()=>path.resolve(process.env.COMMAND_DECK_DATA_DIR??'data','research');
-const python=()=>path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe');
+const python=()=>process.env.COMMAND_DECK_PYTHON??(process.platform==='win32'?'python':'python3');
 export const inputSchema=z.object({prompt:z.string().trim().min(8).max(1500),urls:z.array(z.string().max(1500)).max(8).default([]),fields:z.array(z.string().regex(/^[a-zA-Z][a-zA-Z0-9_ ]{0,31}$/)).max(8).default([]),maxPages:z.number().int().min(1).max(30).default(4),maxDepth:z.number().int().min(0).max(3).default(0),domains:z.array(z.string().regex(/^[a-z0-9.-]+$/i)).max(8).default([]),queries:z.array(z.string().trim().min(2).max(250)).max(2).default([]),render:z.boolean().default(false),modelExtraction:z.boolean().default(true),reportType:z.enum(['research','brief','comparison']).default('research')}).strict();
 export type Input=z.infer<typeof inputSchema>;
 type Source={id:string;url:string;host:string;at:string;status:'collected'|'skipped'|'failed';title?:string;text?:string;reason?:string;meta?:Record<string,string>;json?:unknown};

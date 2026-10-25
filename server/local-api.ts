@@ -1,3 +1,4 @@
+import {registerResearchDocuments} from './research-documents.js';
 import {registerWorkspaceApi} from './workspace-api.js';
 import {structuredLocalPlan} from './deepseek-gateway.js';
 import type {Express} from 'express';
@@ -11,6 +12,7 @@ import {PublicError} from './errors.js';
 import {systemStatus,documentReviews,approveDocument} from './system-tools.js';
 
 export function registerLocalApi(app:Express) {
+ registerResearchDocuments(app);
  registerWorkspaceApi(app);
  app.post('/api/local/plan',async(req,res)=>{const input=z.object({prompt:z.string().min(2).max(16000),system:z.string().min(2).max(4000),toolIds:z.array(z.string().max(80)).min(1).max(8)}).strict().parse(req.body);if(input.toolIds.some(id=>!isLocalTool(id)))throw new PublicError('Only registered tools may be proposed.',400);const raw=await structuredLocalPlan(input.prompt,input.system,input.toolIds);res.json({plan:JSON.parse(raw),model:'deepseek-r1:1.5b',local:true});});
  app.get('/api/local/trading-intelligence',async(_req,res)=>res.json(await (await import('./trading-intelligence.js')).tradingIntelligenceStatus()));

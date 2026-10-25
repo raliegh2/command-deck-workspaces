@@ -4,7 +4,7 @@
 Reusable Research desk section for the included local Command Deck host. The source and server dependencies ship in this repository; this is a host-integrated module, not a standalone npm package.
 
 ## Features
-Public research collection, source review, schedules and document/spreadsheet exports.
+Public URL or conversational research requests; attributed source extracts arranged into reports, briefings, lesson plans, study guides and comparisons. Audience, purpose, headings and three document designs; saved conversations, evidence reuse and Word/PDF/HTML/Markdown downloads. Advanced dataset collection, review, monitoring and spreadsheet exports remain available.
 
 ## Requirements
 Node.js 22.13 or newer, npm, and a browser. Python 3.11+ with root `requirements.txt` supports document/research exports. Docker Desktop/Engine is required for SearXNG and Docling. Start search with `docker compose -p command-deck-local -f config/local-services.compose.yml up -d search`. Start Docling with `docker compose -p command-deck-local -f config/local-services.compose.yml --profile full-documents up -d documents`.
@@ -16,7 +16,7 @@ From the repository root run `npm ci`, `npm run setup`, then `npm run build` and
 Use the root `.env.example` as a variable reference; export variables in your shell. `npm run setup` creates local config from safe examples without overwriting existing files. Register your own project folders and production URLs. Do not commit generated config or runtime data. See [configuration and adapter prerequisites](../../docs/configuration.md) for service commands, ports, platform limits and optional programs. See [configuration and adapter prerequisites](../../docs/configuration.md) for service commands, ports, platform limits and optional programs.
 
 ## Usage
-Describe the research, review the plan, collect sources and download the results.
+Use Document studio: enter a public URL or topic, specify the audience and purpose, then create the document. Follow up with a supported format, audience or theme change; new URLs collect new evidence. Review citations before sharing. Use Datasets & saved crawls for the advanced collector. Pages denied by robots or without readable text cannot become evidence. Arbitrary model rewriting is not implemented.
 
 ## Integration
 Entry source: `src/components/ResearchWorkspace.tsx`. The module entry re-exports this component where applicable. Shared authentication is handled by `src/api.ts`; backend routes are registered by `server/app.ts`, `server/local-api.ts`, `server/workspace-api.ts` and `server/engineering.ts`. Import the module into the host with the matching project/state props defined in its source, and keep the shared CSS and backend routes. Root `package.json` and lockfile contain its JavaScript dependencies. Copy the whole host or preserve these imports when extracting it.

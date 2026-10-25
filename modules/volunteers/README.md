@@ -1,5 +1,7 @@
 # Volunteer sync
 
+> Legacy adapter only. This section is removed from active workspace navigation; existing saved data and backend compatibility are retained.
+
 ## Overview
 Reusable Volunteer sync section for the included local Command Deck host. The source and server dependencies ship in this repository; this is a host-integrated module, not a standalone npm package.
 

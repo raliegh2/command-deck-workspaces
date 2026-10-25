@@ -2,11 +2,11 @@ import { Wrench, Bot, FolderKanban, Globe2, Home, MonitorCog, NotebookTabs, Shie
 import type { NavigationId } from '../types';
 
 const items = [
+  { id: 'overview' as const, label: 'Home', icon: Home },
   { id: 'operations' as const, label: 'Operations', icon: MonitorCog },
   { id: 'assistant' as const, label: 'Local assistant', icon: MessageSquareText },
   { id: 'northstar' as const, label: 'North Star', icon: Globe2 },
   { id: 'tools' as const, label: 'Tools Workspace', icon: Wrench },
-  { id: 'overview' as const, label: 'Overview', icon: Home },
   { id: 'production' as const, label: 'Production', icon: MonitorCog },
   { id: 'security' as const, label: 'Cybersecurity', icon: ShieldCheck },
   { id: 'research' as const, label: 'Research desk', icon: Globe2 },
@@ -29,7 +29,7 @@ export function Sidebar({ active, onChange }: { active: NavigationId; onChange: 
       </nav>
       <div className="local-note">
         <span />
-        <p>Build local.<br />Solve more.</p>
+        <p>Your local workspace.<br />Built to move ideas forward.</p>
       </div>
     </aside>
   );

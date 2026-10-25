@@ -158,5 +158,8 @@ def export(folder):
 if __name__=='__main__':
     if sys.argv[1]=='parse':
         source=json.loads(Path(sys.argv[2]).read_text(encoding='utf-8'));print(json.dumps(parse(source),ensure_ascii=True))
+    elif sys.argv[1]=='document':
+        from research_document import export_document
+        print(json.dumps({'files':export_document(Path(sys.argv[2]))}))
     elif sys.argv[1]=='export':print(json.dumps({'files':export(Path(sys.argv[2]))}))
     elif sys.argv[1]=='pdf':print(json.dumps(pdf_parse(sys.argv[2]),ensure_ascii=True))

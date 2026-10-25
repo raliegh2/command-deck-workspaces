@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-25T00:54:35.4972728Z",
+  "title": "Design System: Command Deck",
+  "extensions": {
+    "source": "src/dashboard-v14.css",
+    "reference": "https://www.instagram.com/reel/DeoxA_vzRbo/",
+    "focus": "3px visible outline; preserve reduced motion",
+    "refreshedSources": [
+      "src/theme.css",
+      "src/design-refresh.css",
+      "src/design-corrections.css",
+      "src/components/HomeWorkspace.tsx",
+      "src/components/ServiceDirectory.tsx",
+      "src/components/ResearchDocumentStudio.tsx"
+    ],
+    "cascade": "The refresh and corrections are imported after theme.css. The preserved source/reference fields describe legacy provenance.",
+    "colorMeta": {
+      "action": {
+        "role": "primary",
+        "displayName": "Burnt orange",
+        "tonalRamp": [
+          "oklch(15% 0.14 37)",
+          "oklch(26% 0.14 37)",
+          "oklch(37% 0.14 37)",
+          "oklch(48% 0.14 37)",
+          "oklch(59% 0.14 37)",
+          "oklch(70% 0.14 37)",
+          "oklch(82% 0.14 37)",
+          "oklch(95% 0.14 37)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Deep burnt orange",
+        "tonalRamp": [
+          "oklch(15% 0.13 37)",
+          "oklch(26% 0.13 37)",
+          "oklch(37% 0.13 37)",
+          "oklch(48% 0.13 37)",
+          "oklch(59% 0.13 37)",
+          "oklch(70% 0.13 37)",
+          "oklch(82% 0.13 37)",
+          "oklch(95% 0.13 37)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "action-soft": {
+        "role": "primary",
+        "displayName": "Orange wash",
+        "tonalRamp": [
+          "oklch(15% 0.035 53)",
+          "oklch(26% 0.035 53)",
+          "oklch(37% 0.035 53)",
+          "oklch(48% 0.035 53)",
+          "oklch(59% 0.035 53)",
+          "oklch(70% 0.035 53)",
+          "oklch(82% 0.035 53)",
+          "oklch(95% 0.035 53)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Warm canvas",
+        "tonalRamp": [
+          "oklch(15% 0.007 95)",
+          "oklch(26% 0.007 95)",
+          "oklch(37% 0.007 95)",
+          "oklch(48% 0.007 95)",
+          "oklch(59% 0.007 95)",
+          "oklch(70% 0.007 95)",
+          "oklch(82% 0.007 95)",
+          "oklch(95% 0.007 95)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Field wash",
+        "tonalRamp": [
+          "oklch(15% 0.005 95)",
+          "oklch(26% 0.005 95)",
+          "oklch(37% 0.005 95)",
+          "oklch(48% 0.005 95)",
+          "oklch(59% 0.005 95)",
+          "oklch(70% 0.005 95)",
+          "oklch(82% 0.005 95)",
+          "oklch(95% 0.005 95)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "White surface",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Green black ink",
+        "tonalRamp": [
+          "oklch(15% 0.012 155)",
+          "oklch(26% 0.012 155)",
+          "oklch(37% 0.012 155)",
+          "oklch(48% 0.012 155)",
+          "oklch(59% 0.012 155)",
+          "oklch(70% 0.012 155)",
+          "oklch(82% 0.012 155)",
+          "oklch(95% 0.012 155)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted sage gray",
+        "tonalRamp": [
+          "oklch(15% 0.012 150)",
+          "oklch(26% 0.012 150)",
+          "oklch(37% 0.012 150)",
+          "oklch(48% 0.012 150)",
+          "oklch(59% 0.012 150)",
+          "oklch(70% 0.012 150)",
+          "oklch(82% 0.012 150)",
+          "oklch(95% 0.012 150)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Mineral line",
+        "tonalRamp": [
+          "oklch(15% 0.01 110)",
+          "oklch(26% 0.01 110)",
+          "oklch(37% 0.01 110)",
+          "oklch(48% 0.01 110)",
+          "oklch(59% 0.01 110)",
+          "oklch(70% 0.01 110)",
+          "oklch(82% 0.01 110)",
+          "oklch(95% 0.01 110)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Soft mineral line",
+        "tonalRamp": [
+          "oklch(15% 0.006 110)",
+          "oklch(26% 0.006 110)",
+          "oklch(37% 0.006 110)",
+          "oklch(48% 0.006 110)",
+          "oklch(59% 0.006 110)",
+          "oklch(70% 0.006 110)",
+          "oklch(82% 0.006 110)",
+          "oklch(95% 0.006 110)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Success green",
+        "tonalRamp": [
+          "oklch(15% 0.10 155)",
+          "oklch(26% 0.10 155)",
+          "oklch(37% 0.10 155)",
+          "oklch(48% 0.10 155)",
+          "oklch(59% 0.10 155)",
+          "oklch(70% 0.10 155)",
+          "oklch(82% 0.10 155)",
+          "oklch(95% 0.10 155)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Warning amber",
+        "tonalRamp": [
+          "oklch(15% 0.11 80)",
+          "oklch(26% 0.11 80)",
+          "oklch(37% 0.11 80)",
+          "oklch(48% 0.11 80)",
+          "oklch(59% 0.11 80)",
+          "oklch(70% 0.11 80)",
+          "oklch(82% 0.11 80)",
+          "oklch(95% 0.11 80)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "Danger red",
+        "tonalRamp": [
+          "oklch(15% 0.16 30)",
+          "oklch(26% 0.16 30)",
+          "oklch(37% 0.16 30)",
+          "oklch(48% 0.16 30)",
+          "oklch(59% 0.16 30)",
+          "oklch(70% 0.16 30)",
+          "oklch(82% 0.16 30)",
+          "oklch(95% 0.16 30)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "document-navy": {
+        "role": "document",
+        "displayName": "Executive navy",
+        "tonalRamp": [
+          "oklch(15% 0.05 245)",
+          "oklch(26% 0.05 245)",
+          "oklch(37% 0.05 245)",
+          "oklch(48% 0.05 245)",
+          "oklch(59% 0.05 245)",
+          "oklch(70% 0.05 245)",
+          "oklch(82% 0.05 245)",
+          "oklch(95% 0.05 245)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      },
+      "document-forest": {
+        "role": "document",
+        "displayName": "Field notes green",
+        "tonalRamp": [
+          "oklch(15% 0.07 160)",
+          "oklch(26% 0.07 160)",
+          "oklch(37% 0.07 160)",
+          "oklch(48% 0.07 160)",
+          "oklch(59% 0.07 160)",
+          "oklch(70% 0.07 160)",
+          "oklch(82% 0.07 160)",
+          "oklch(95% 0.07 160)"
+        ],
+        "rampUsage": "Panel visualization only; intermediate ramp colors are synthesized and are not application tokens."
+      }
+    },
+    "shadows": [
+      {
+        "purpose": "Quiet document separation",
+        "name": "paper",
+        "value": "0 14px 36px #25352b0b"
+      },
+      {
+        "purpose": "Mobile navigation overlay",
+        "name": "mobile-navigation",
+        "value": "16px 8px 30px #172b221a"
+      }
+    ],
+    "motion": [
+      {
+        "purpose": "Translate Y 8px to 0 and opacity .85 to 1; disabled with prefers-reduced-motion: reduce",
+        "name": "command-arrival",
+        "value": "home-arrive .5s cubic-bezier(.16,1,.3,1)"
+      }
+    ],
+    "breakpoints": [
+      {
+        "value": "1600px",
+        "name": "wide"
+      },
+      {
+        "value": "1100px",
+        "name": "compact-desktop"
+      },
+      {
+        "value": "850px",
+        "name": "mobile-shell"
+      },
+      {
+        "value": "520px",
+        "name": "small"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary research action",
+      "refersTo": "button-primary",
+      "css": ".ds-primary{font-family:Manrope,'Segoe UI',sans-serif; background:var(--ui-orange,#b74325);color:white;border:1px solid var(--ui-orange,#b74325);border-radius:5px;padding:13px 16px;min-height:45px;width:100%;font-size:12px;cursor:pointer}.ds-primary:hover{background:var(--ui-orange-hover,#91341c)}.ds-primary:focus-visible{outline:3px solid var(--ui-orange-hover,#91341c);outline-offset:3px} .ds-primary:disabled{background:var(--ui-subtle,#f8f7f4);color:var(--ui-muted,#626a65);cursor:default}",
+      "description": "Full-width document creation and revision action",
+      "kind": "button",
+      "html": "<button class=\"ds-primary\">Read the web &amp; create</button>"
+    },
+    {
+      "name": "Open service",
+      "refersTo": "service-open",
+      "css": ".ds-open{font-family:Manrope,'Segoe UI',sans-serif; display:inline-flex;align-items:center;gap:6px;padding:7px 10px;min-height:32px;border:1px solid var(--ui-line,#dedfd8);border-radius:6px;background:white;color:var(--ui-ink,#202725);text-decoration:none;font-size:11px}.ds-open:hover{color:var(--ui-orange,#b74325);border-color:var(--ui-orange,#b74325)}.ds-open:focus-visible{outline:3px solid var(--ui-orange-hover,#91341c);outline-offset:3px}",
+      "description": "Direct link to the service interface",
+      "kind": "button",
+      "html": "<a class=\"ds-open\" href=\"#tools/search\">Open <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>"
+    },
+    {
+      "name": "Research field",
+      "refersTo": "input",
+      "css": ".ds-field{font-family:Manrope,'Segoe UI',sans-serif; display:flex;flex-direction:column;gap:8px;font-size:11px;color:var(--ui-muted,#626a65)}.ds-field input{font-family:Manrope,'Segoe UI',sans-serif; background:var(--ui-subtle,#f8f7f4);color:var(--ui-ink,#202725);border:1px solid var(--ui-line,#dedfd8);border-radius:7px;padding:11px;font-size:12px;line-height:1.7}.ds-field input:hover{border-color:var(--ui-muted,#626a65)}.ds-field input:focus-visible{outline:3px solid var(--ui-orange-hover,#91341c);outline-offset:3px}",
+      "description": "Labeled research input",
+      "kind": "input",
+      "html": "<label class=\"ds-field\">Document title<input placeholder=\"Research report\" /></label>"
+    },
+    {
+      "name": "Selected navigation",
+      "refersTo": "nav-active",
+      "css": ".ds-nav{font-family:Manrope,'Segoe UI',sans-serif; display:flex;min-height:44px;align-items:center;padding:11px 15px;border-radius:8px;background:var(--ui-orange-soft,#f8e8de);color:var(--ui-orange-hover,#91341c);font-size:12px;font-weight:750;text-decoration:none}.ds-nav:hover{background:var(--ui-orange-soft,#f8e8de)}.ds-nav:focus-visible{outline:3px solid var(--ui-orange-hover,#91341c);outline-offset:3px}",
+      "description": "Current workspace navigation item",
+      "kind": "nav",
+      "html": "<nav><a class=\"ds-nav\" href=\"#home\" aria-current=\"page\">Home</a></nav>"
+    },
+    {
+      "name": "Conversation surface",
+      "refersTo": "conversation",
+      "css": ".ds-conversation{font-family:Manrope,'Segoe UI',sans-serif; background:var(--ui-surface,#fff);color:var(--ui-ink,#202725);padding:26px;border-radius:14px}.ds-conversation h2{font-size:17px;letter-spacing:-.3px;margin:0}.ds-conversation p{font-size:13px;line-height:1.9;color:var(--ui-muted,#626a65)}",
+      "description": "Quiet working surface with visible chat in normal flow",
+      "kind": "card",
+      "html": "<section class=\"ds-conversation\"><h2>Your research brief</h2><p>Send a public link or describe what you need.</p></section>"
+    },
+    {
+      "name": "Document paper",
+      "refersTo": "document-paper",
+      "css": ".ds-paper{background:white;padding:46px 42px;box-shadow:0 14px 36px #25352b0b;color:var(--ui-ink,#202725);font:14px/1.85 Georgia,serif}.ds-paper header{border-bottom:2px solid var(--ui-orange,#b74325);padding-bottom:28px;margin-bottom:28px}.ds-paper h2{font:400 32px/1.2 Georgia,serif;letter-spacing:-.7px;color:var(--ui-orange,#b74325);margin:0 0 18px}.ds-paper header span{display:block;font:11px/1.7 Manrope,sans-serif;color:var(--ui-muted,#626a65);margin-top:16px}.ds-paper h3{font:750 15px/1.5 Manrope,sans-serif;color:var(--ui-orange,#b74325)}.ds-paper sup{font:9px Manrope,sans-serif;color:var(--ui-orange,#b74325);margin-left:5px}",
+      "description": "Reading surface with title, purpose and secondary metadata",
+      "kind": "custom",
+      "html": "<article class=\"ds-paper\"><header><h2>Research briefing</h2><p>Collected findings for the next discussion.</p><span>Briefing · Prepared for General reader</span></header><h3>Findings</h3><p>Source-linked content belongs here.<sup>[S1]</sup></p></article>"
+    },
+    {
+      "html": "<button class=\"ds-project\"><strong>Project name</strong><small>Project description</small></button>",
+      "kind": "custom",
+      "name": "Project row",
+      "css": ".ds-project{font-family:Manrope,'Segoe UI',sans-serif; width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--ui-line,#dedfd8);padding:17px 0;cursor:pointer;color:var(--ui-ink,#202725)}.ds-project strong,.ds-project small{display:block}.ds-project strong{font-size:12px;font-weight:750}.ds-project small{font-size:11px;color:var(--ui-muted,#626a65);margin-top:5px;line-height:1.6}.ds-project:hover strong{color:var(--ui-orange,#b74325)}.ds-project:focus-visible{outline:3px solid var(--ui-orange-hover,#91341c);outline-offset:3px}",
+      "description": "Flat launchable record with a separator"
+    }
+  ],
+  "narrative": {
+    "overview": "Command Deck retains its orange-and-white brand in a warmer, quieter operating workspace. Strong headings, a single orange command surface, clear service actions and flat information rails make the next useful action visible. Manrope carries interface work; Georgia gives research documents a reading voice.\n\nThis refresh replaces the former Dashboard V14 composition on Home and the research studio. Existing tools retain their functions and source/review boundaries. The visual system supports real projects, service readiness, durable work and source-linked documents; decorative statistics cannot substitute for those records.",
+    "dos": [
+      "Do preserve the orange-and-white identity while using the warm canvas and final refresh tokens.",
+      "Do keep real service destinations, status text, source citations and existing review gates visible.",
+      "Do keep the entire research conversation accessible in document flow.",
+      "Do use Georgia for reading and Manrope for operating controls."
+    ],
+    "donts": [
+      "Don't restore the removed Volunteer sync or Service desk interface.",
+      "Don't invent metrics, deploy claims or unrestricted document-writing capabilities.",
+      "Don't turn project rows and launch actions into repeated elevated cards.",
+      "Don't apply the studio palette to client-sector previews that have their own design brief."
+    ],
+    "keyCharacteristics": [
+      "Warm canvas, white working surfaces and restrained orange actions.",
+      "Flat launch and project rails with readable supporting text.",
+      "A clear distinction between interface controls and the document itself."
+    ],
+    "rules": [
+      {
+        "name": "The Labeled State Rule",
+        "section": "colors",
+        "body": "State color always accompanies readable status text."
+      }
+    ]
+  }
+}

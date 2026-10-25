@@ -1,19 +1,17 @@
+import {HomeWorkspace} from './components/HomeWorkspace';
 import {OperationsWorkspace} from './components/OperationsWorkspace';
 import {ToolsWorkspace} from './components/ToolsWorkspace';
 import './components/workspace-ui.css';
 import {TradingIntelligence} from './components/TradingIntelligence';
 import {LocalAssistant} from './components/LocalAssistant';
 import {NorthstarStudio} from './components/NorthstarStudio';
-import { CircleAlert, LoaderCircle, Menu, Plus } from 'lucide-react';
+import { LoaderCircle, Menu, Plus } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 import { api } from './api';
 import { AddProjectModal } from './components/AddProjectModal';
-import { AgentRail } from './components/AgentRail';
 import { AgentsView, KnowledgeView } from './components/SecondaryViews';
-import { ActivityStrip } from './components/ActivityStrip';
 import { Brand } from './components/Brand';
 import { ChangesetReview } from './components/ChangesetReview';
-import { CommandComposer } from './components/CommandComposer';
 import { ProjectDrawer } from './components/ProjectDrawer';
 import { ProjectTable } from './components/ProjectTable';
 import { ProductionView } from './components/ProductionView';
@@ -21,7 +19,6 @@ import { ProductionAlertsPanel } from './components/ProductionAlertsPanel';
 import {ResearchWorkspace} from './components/ResearchWorkspace';
 import { SecurityView } from './components/SecurityView';
 import { Sidebar } from './components/Sidebar';
-import { WorkList } from './components/WorkList';
 import type { ChangeSet, DashboardData, NavigationId, Project, WorkItem } from './types';
 
 function route():NavigationId{const raw=decodeURIComponent(location.hash.slice(1)).split('/')[0];const aliases:Record<string,NavigationId>={engineering:'operations',system:'operations',work:'operations','local-tools':'tools','market-intelligence':'trading-intelligence','review-signals':'trading-intelligence'};const id=aliases[raw]??raw;return ['operations','tools','assistant','northstar','overview','production','security','research','trading-intelligence','projects','agents','knowledge'].includes(id)?id as NavigationId:'overview';}
@@ -64,6 +61,7 @@ export function App() {
   }
 
   function navigate(id: NavigationId) {
+    setMenuOpen(false);
     setActive(id==='work'||id==='engineering'||id==='system'?'operations':id==='local-tools'?'tools':id);
     window.history.replaceState(null, '', id === 'overview' ? window.location.pathname : `#${id}`);
   }
@@ -104,35 +102,7 @@ export function App() {
         ) : active === 'tools' ? (
           <ToolsWorkspace projects={data.projects} hosted={Boolean(hosted)}/>
         ) : active === 'overview' ? (
-          <>
-            <main className="overview-main">
-              <section className="v14-summary" aria-label="Workspace overview">
-                <article><span>Projects</span><strong>{data.projects.length}</strong><small>Registered workspaces</small></article>
-                <article><span>Active work</span><strong>{data.work.filter(item => ['queued', 'in-progress'].includes(item.status)).length}</strong><small>Queued or in progress</small></article>
-                <article><span>Awaiting review</span><strong>{data.changesets.filter(item => item.status === 'pending').length}</strong><small>Proposals pending review</small></article>
-              </section>
-              <section className="command-zone">
-                <h1>What are we solving today?</h1>
-                <CommandComposer onDispatch={handleDispatch} busy={dispatching} disabled={hosted} />
-                {dispatchResult ? (
-                  <button className={'dispatch-result ' + dispatchResult.status} onClick={() => navigate('operations')}>
-                    <span>{dispatchResult.status === 'blocked' ? <CircleAlert size={18} /> : <i />}</span>
-                    <div><strong>{dispatchResult.teamName} has the request</strong><p>{dispatchResult.summary}</p></div>
-                    <b>Open tasks →</b>
-                  </button>
-                ) : null}
-              </section>
-              <ProjectTable projects={data.projects} onSelect={setSelectedProject} onAdd={() => setShowAdd(true)} />
-              <WorkList work={data.work} />
-            </main>
-            <AgentRail
-              teams={data.teams}
-              knowledgeConnected={data.knowledge.connected}
-              onShowAgents={() => setActive('agents')}
-              onShowKnowledge={() => setActive('knowledge')}
-            />
-            <ActivityStrip projects={data.projects} activity={data.activity} />
-          </>
+          <HomeWorkspace data={data} onNavigate={navigate} onProject={setSelectedProject} onDispatch={handleDispatch} busy={dispatching} result={dispatchResult} hosted={Boolean(hosted)}/>
         ) : active === 'production' ? (
           <><ProductionAlertsPanel /><ProductionView onWorkQueued={(item) => { setDispatchResult(item); void refresh(); }} /></>
         ) : active === 'trading-intelligence' ? (

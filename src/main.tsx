@@ -10,3 +10,6 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+import './design-refresh.css';
+import './design-corrections.css';

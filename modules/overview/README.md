@@ -4,7 +4,7 @@
 Reusable Overview section for the included local Command Deck host. The source and server dependencies ship in this repository; this is a host-integrated module, not a standalone npm package.
 
 ## Features
-Review projects and planned work.
+Home-first navigation, real project and request lists, command dispatch, workflow shortcuts and local service launch controls.
 
 ## Requirements
 Node.js 22.13 or newer, npm, and a browser. Python 3.11+ with root `requirements.txt` supports document/research exports. Optional adapters report unavailable until their dependencies and registered folders are configured; they are never simulated as live services.

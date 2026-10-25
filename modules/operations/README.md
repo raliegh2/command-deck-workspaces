@@ -4,7 +4,7 @@
 Reusable Operations section for the included local Command Deck host. The source and server dependencies ship in this repository; this is a host-integrated module, not a standalone npm package.
 
 ## Features
-System readiness, tasks, inventories, diagnostics, data validation and service tickets.
+Local readiness, work requests, asset inventory, workflows, observability and data imports. Each local service has an Open control leading to its usable workspace. Volunteer sync and Service desk are removed from the UI.
 
 ## Requirements
 Node.js 22.13 or newer, npm, and a browser. Python 3.11+ with root `requirements.txt` supports document/research exports. Optional adapters report unavailable until their dependencies and registered folders are configured; they are never simulated as live services.
@@ -16,7 +16,7 @@ From the repository root run `npm ci`, `npm run setup`, then `npm run build` and
 Use the root `.env.example` as a variable reference; export variables in your shell. `npm run setup` creates local config from safe examples without overwriting existing files. Register your own project folders and production URLs. Do not commit generated config or runtime data. See [configuration and adapter prerequisites](../../docs/configuration.md) for service commands, ports, platform limits and optional programs. See [configuration and adapter prerequisites](../../docs/configuration.md) for service commands, ports, platform limits and optional programs.
 
 ## Usage
-Open Operations. Choose a tab; run a diagnostic or review a source proposal.
+Open Operations to inspect readiness and open the assistant, search, documents or monitoring. Use the task and engineering tabs for diagnostics and source review.
 
 ## Integration
 Entry source: `src/components/OperationsWorkspace.tsx`. The module entry re-exports this component where applicable. Shared authentication is handled by `src/api.ts`; backend routes are registered by `server/app.ts`, `server/local-api.ts`, `server/workspace-api.ts` and `server/engineering.ts`. Import the module into the host with the matching project/state props defined in its source, and keep the shared CSS and backend routes. Root `package.json` and lockfile contain its JavaScript dependencies. Copy the whole host or preserve these imports when extracting it.
